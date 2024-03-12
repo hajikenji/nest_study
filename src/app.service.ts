@@ -9,4 +9,8 @@ export class AppService {
   getIndex(): string {
     return 'Hello World?';
   }
+
+  responseNew(): string {
+    return 'Hello World...';
+  }
 }
