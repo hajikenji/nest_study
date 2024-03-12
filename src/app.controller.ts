@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Redirect } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -18,5 +18,10 @@ export class AppController {
   @Post('new')
   responseNew(): string {
     return this.appService.responseNew();
+  }
+
+  @Get('redirect')
+  @Redirect('/index')
+  redirect(): void {
   }
 }
