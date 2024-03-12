@@ -15,11 +15,13 @@ export class AppController {
     return this.appService.getIndex();
   }
 
+  // Post受信
   @Post('new')
   responseNew(): string {
     return this.appService.responseNew();
   }
 
+  // リダイレクト
   @Get('redirect')
   @Redirect('/index')
   redirect(): void {
