@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Redirect } from '@nestjs/common';
+import { Controller, Get, Post, Redirect, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -23,5 +23,11 @@ export class AppController {
   @Get('redirect')
   @Redirect('/index')
   redirect(): void {
+  }
+
+  // 動的パラメータ
+  @Get('id/:id')
+  responseId(@Param() params: any): string{
+    return params.id;
   }
 }
