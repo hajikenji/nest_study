@@ -29,6 +29,7 @@ export class AppController {
 
   // 動的パラメータ
   @Get('id/:id')
+  // パラメーター操作
   responseId(@Param() params: any): string{
     return params.id;
   }
