@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Redirect, Param } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Test as TestModel, Prisma } from '@prisma/client';
 
 @Controller()
 export class AppController {
@@ -32,5 +33,12 @@ export class AppController {
   // パラメーター操作
   responseId(@Param() params: any): string{
     return params.id;
+  }
+
+  // Createテスト クライアントから受付
+  @Post('create/random')
+  createRandom(): Promise<TestModel> {
+    const newTest: Prisma.TestCreateInput = { name: 'michel' };
+    return this.appService.createRandom(newTest);
   }
 }
